@@ -50,7 +50,9 @@ public class MorseDecoder {
          */
         int totalBinCount = (int) Math.ceil(inputFile.getNumFrames() / BIN_SIZE);
         double[] returnBuffer = new double[totalBinCount];
-
+        if (totalBinCount == 0) {
+            System.out.println("There were 0 bins");
+        }
         double[] sampleBuffer = new double[BIN_SIZE * inputFile.getNumChannels()];
         for (int binIndex = 0; binIndex < totalBinCount; binIndex++) {
             // Get the right number of samples from the inputFile
